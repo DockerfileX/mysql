@@ -1,13 +1,17 @@
 # MySQL
 
-## 1. 特性
+## 1. 简介
+
+对MySQL官方的镜像文件设置默认使用utf8mb4编码
+
+## 2. 特性
 
 1. mysql
 2. TZ=Asia/Shanghai
 3. C.UTF-8
 4. my.cnf -> utf8mb4
 
-## 2. 拉取与制作标签
+## 3. 拉取与制作标签
 
 1. pull
 
@@ -29,7 +33,7 @@
    docker push nnzbz/mysql:5
    ```
 
-## 3. 创建并运行容器
+## 4. 创建并运行容器
 
 - 将数据映射到宿主机路径中保存
   
@@ -59,7 +63,7 @@
   docker run -dp3306:3306 --restart=always --name mysql -e MYSQL_ROOT_PASSWORD=root --volumes-from mysql-data nnzbz/mysql
   ```
 
-## 4. 其它容器连接MySQL容器
+## 5. 其它容器连接MySQL容器
 
 ```sh
 docker run --name some-app --link some-mysql:mysql -d application-that-uses-mysql
